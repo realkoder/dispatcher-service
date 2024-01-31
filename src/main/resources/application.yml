@@ -3,3 +3,6 @@ server:
 spring:
   application:
     name: dispatcher-service
+  cloud:
+    function:
+      definition: pack|label # Definition of the function managed by the Spring Cloud Function
