@@ -6,3 +6,18 @@ spring:
   cloud:
     function:
       definition: pack|label # Definition of the function managed by the Spring Cloud Function
+    stream:
+      bindings:
+        packlabel-in-0: # Input binding
+          destination: order-accepted # Actual name of broker that binder binds to(exchange in RabbitMQ)
+          group: ${spring.application.name} # Consumer group interested in destination
+        packlabel-out-0: # Output binding
+          destination: order-dispatched
+
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: user
+    password: password
+    connection-timeout: 5s
